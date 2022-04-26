@@ -3,41 +3,21 @@ package band.effective.bootstrap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import band.effective.bootstrap.ui.theme.BootstrapTemplateTheme
+import band.effective.bootstrap.main.di.mainComponent
+import band.effective.bootstrap.presentation.AppHost
+import com.google.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainComponent.getInstance(this).inject(this)
         setContent {
             BootstrapTemplateTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
+                ProvideWindowInsets {
+                    AppHost()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    BootstrapTemplateTheme {
-        Greeting("Android")
     }
 }
