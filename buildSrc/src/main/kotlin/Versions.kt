@@ -60,4 +60,8 @@ object Versions {
     object Navigation {
         const val version = "1.5.0-beta"
     }
+
+    object Drawer {
+        const val version = "0.19.0"
+    }
 }

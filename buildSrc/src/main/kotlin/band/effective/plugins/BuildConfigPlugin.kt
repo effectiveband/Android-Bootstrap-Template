@@ -1,5 +1,7 @@
 package band.effective.plugins
 
+import Configs
+import Libs
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
@@ -101,6 +103,7 @@ class BuildConfigPlugin : Plugin<Project> {
         project.dependencies {
             add("implementation", Libs.Coroutines.android)
             add("implementation", Libs.Timber.timber)
+            add("implementation", Libs.Drawer.base)
         }
     }
 }

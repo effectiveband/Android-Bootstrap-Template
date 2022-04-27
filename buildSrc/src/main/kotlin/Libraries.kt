@@ -84,4 +84,10 @@ object Libs {
         const val destinations = "io.github.raamcosta.compose-destinations:core:${Versions.Navigation.version}"
         const val compiler = "io.github.raamcosta.compose-destinations:ksp:${Versions.Navigation.version}"
     }
+
+    object Drawer{
+        const val base = "com.github.alorma:drawer-base:${Versions.Drawer.version}"
+        const val modules = "com.github.alorma:drawer-modules:${Versions.Drawer.version}"
+        const val uiModules = "com.github.alorma:drawer-ui-modules:${Versions.Drawer.version}"
+    }
 }

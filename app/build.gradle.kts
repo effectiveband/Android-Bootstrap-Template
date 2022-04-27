@@ -15,6 +15,15 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    sourceSets {
+        getByName("withDrawer") {
+            java.setSrcDirs(listOf("src/withDrawer/kotlin"))
+        }
+        getByName("noDrawer") {
+            java.setSrcDirs(listOf("src/noDrawer/kotlin"))
+        }
+    }
+
     packagingOptions {
         resources {
             excludes.add("/META-INF/{AL2.0,LGPL2.1}")

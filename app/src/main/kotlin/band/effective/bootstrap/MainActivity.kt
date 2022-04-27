@@ -1,11 +1,12 @@
 package band.effective.bootstrap
 
+import ConfigureScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import band.effective.bootstrap.ui.theme.BootstrapTemplateTheme
 import band.effective.bootstrap.main.di.mainComponent
 import band.effective.bootstrap.presentation.AppHost
+import band.effective.bootstrap.ui.theme.BootstrapTemplateTheme
 import com.google.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : ComponentActivity() {
@@ -13,9 +14,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         mainComponent.getInstance(this).inject(this)
         setContent {
-            BootstrapTemplateTheme {
-                ProvideWindowInsets {
-                    AppHost()
+            ConfigureScreen {
+                BootstrapTemplateTheme {
+                    ProvideWindowInsets {
+                        AppHost()
+                    }
                 }
             }
         }
