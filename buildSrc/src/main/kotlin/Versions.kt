@@ -64,4 +64,8 @@ object Versions {
     object Drawer {
         const val version = "0.19.0"
     }
+
+    object LeakCanary {
+        const val version = "2.9.1"
+    }
 }

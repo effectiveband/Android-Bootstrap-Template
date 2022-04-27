@@ -104,6 +104,7 @@ class BuildConfigPlugin : Plugin<Project> {
             add("implementation", Libs.Coroutines.android)
             add("implementation", Libs.Timber.timber)
             add("implementation", Libs.Drawer.base)
+            add("implementation", Libs.LeakCanary.android)
         }
     }
 }

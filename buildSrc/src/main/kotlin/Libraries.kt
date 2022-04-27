@@ -90,4 +90,8 @@ object Libs {
         const val modules = "com.github.alorma:drawer-modules:${Versions.Drawer.version}"
         const val uiModules = "com.github.alorma:drawer-ui-modules:${Versions.Drawer.version}"
     }
+
+    object LeakCanary{
+        const val android = "com.squareup.leakcanary:leakcanary-android:${Versions.LeakCanary.version}"
+    }
 }
