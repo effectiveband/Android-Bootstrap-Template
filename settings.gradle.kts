@@ -1,0 +1,1 @@
+rootProject.name = "Effective Bootstrap template plugin"

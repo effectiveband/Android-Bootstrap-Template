@@ -1,0 +1,27 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>band.effective.bootstrap</id>
+    <name>Bootstrap template</name>
+    <vendor>Effective</vendor>
+
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="band.effective.bootstrap.services.MyApplicationService" />
+        <projectService
+            serviceImplementation="band.effective.bootstrap.services.MyProjectService" />
+    </extensions>
+
+    <applicationListeners>
+        <listener class="band.effective.bootstrap.listeners.MyProjectManagerListener"
+            topic="com.intellij.openapi.project.ProjectManagerListener" />
+    </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="band.effective.bootstrap.other.WizardTemplateProviderImpl" />
+    </extensions>
+</idea-plugin>
