@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.android.application)
     id("band.effective.module.screen")
     id("band.effective.module.dagger")
 }
@@ -7,21 +7,11 @@ plugins {
 android {
 
     defaultConfig {
-        applicationId = "band.effective.bootstrap"
+        applicationId = "band.effective"
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
-    }
-
-    sourceSets {
-        getByName("withDrawer") {
-            java.setSrcDirs(listOf("src/withDrawer/kotlin"))
-        }
-        getByName("noDrawer") {
-            java.setSrcDirs(listOf("src/noDrawer/kotlin"))
-        }
     }
 
     packagingOptions {
@@ -35,13 +25,10 @@ dependencies {
 
     implementation(project(":network"))
 
-    implementation(Libs.Retrofit.client)
-    implementation(Libs.Retrofit.moshiConverter)
+    implementation(libs.retrofit.client)
+    implementation(libs.retrofit.moshi)
+    implementation(libs.retrofit.mock)
 
-    implementation(Libs.OkHttp.client)
-    implementation(Libs.OkHttp.loggingInterceptor)
-
-    implementation(Libs.Moshi.kotlin)
-    implementation(Libs.Moshi.adapters)
-    ksp(Libs.Moshi.compiler)
+    implementation(libs.okhttp.client)
+    devImplementation(libs.okhttp.logginginterceptor)
 }

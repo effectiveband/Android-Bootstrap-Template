@@ -1,20 +1,21 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
     id("band.effective.module.dagger")
-    id("band.effective.network.config")
     id("com.google.devtools.ksp")
 }
 
 dependencies {
     implementation(project(":core"))
 
-    implementation(Libs.Retrofit.client)
-    implementation(Libs.Retrofit.moshiConverter)
+    implementation(libs.retrofit.client)
+    implementation(libs.retrofit.moshi)
 
-    implementation(Libs.OkHttp.client)
-    implementation(Libs.OkHttp.loggingInterceptor)
+    implementation(libs.okhttp.client)
+    devImplementation(libs.okhttp.logginginterceptor)
 
-    implementation(Libs.Moshi.kotlin)
-    implementation(Libs.Moshi.adapters)
-    ksp(Libs.Moshi.compiler)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.moshi.adapters)
+    ksp(libs.moshi.compiler)
 }
