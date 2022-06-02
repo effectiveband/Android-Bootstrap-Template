@@ -24,6 +24,7 @@ android {
 dependencies {
 
     implementation(project(":network"))
+    implementation(project(":screens:example"))
 
     implementation(libs.retrofit.client)
     implementation(libs.retrofit.moshi)

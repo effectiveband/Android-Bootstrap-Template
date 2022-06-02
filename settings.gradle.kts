@@ -20,3 +20,4 @@ dependencyResolutionManagement {
 rootProject.name = "Template"
 include(":app")
 include(":core", ":core-ui", ":network")
+include(":screens:example")
