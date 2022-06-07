@@ -14,12 +14,19 @@ import androidx.compose.ui.res.stringResource
 import band.effective.core_ui.di.daggerSavedStateViewModel
 import band.effective.example.di.exampleComponent
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@Destination()
+@RootNavGraph(start = true)
+@Destination
 @Composable
-fun ExampleScreen(navigator: ExampleScreenNavigation) {
+fun ExampleScreen() {
     val activity = LocalContext.current as Activity
 
+    /**
+     * if viewModel doesn't have runtime params
+     * use daggerViewModel without factory.
+     * Also need to bind viewModel class in dagger module
+     */
     ExampleScreen(
         viewModel = daggerSavedStateViewModel {
             exampleComponent.getInstance(activity).exampleViewModelFactory.create(it)

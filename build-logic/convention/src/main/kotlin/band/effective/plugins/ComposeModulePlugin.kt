@@ -61,7 +61,6 @@ class ComposeModulePlugin : Plugin<Project> {
     private fun BaseExtension.applyNavigation(project: Project) {
         val libs = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
         val kotlin = project.extensions.getByName("kotlin") as KotlinAndroidProjectExtension
-        val ksp = project.extensions.getByName("ksp") as com.google.devtools.ksp.gradle.KspExtension
 
         when (this) {
             is LibraryExtension -> libraryVariants.all {
@@ -70,10 +69,6 @@ class ComposeModulePlugin : Plugin<Project> {
             is AppExtension -> applicationVariants.all {
                 kotlin.sourceSets.getByName(name).kotlin.srcDir("build/generated/ksp/$name/kotlin")
             }
-        }
-
-        ksp.apply {
-            arg("compose-destinations.generateNavGraphs", "false")
         }
 
         project.dependencies {
