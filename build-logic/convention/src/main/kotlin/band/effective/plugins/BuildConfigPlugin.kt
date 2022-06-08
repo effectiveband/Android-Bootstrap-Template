@@ -69,7 +69,7 @@ class BuildConfigPlugin : Plugin<Project> {
     private fun BaseExtension.applySigningConfig(project: Project) {
         signingConfigs {
             create("internal") {
-                storeFile = File("${project.rootDir}/internalKeystore/headlineskey")
+                storeFile = File("${project.rootDir}/internalKeystore/keystore")
                 storePassword = "effectivepswd"
                 keyAlias = "effectivekey"
                 keyPassword = "effectivepswd"

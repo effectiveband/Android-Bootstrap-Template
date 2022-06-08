@@ -1,9 +1,18 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     alias(libs.plugins.android.library)
     id("band.effective.module.dagger")
     id("com.google.devtools.ksp")
+}
+
+android {
+    productFlavors {
+        getByName("dev") {
+
+        }
+        getByName("prod") {
+
+        }
+    }
 }
 
 dependencies {

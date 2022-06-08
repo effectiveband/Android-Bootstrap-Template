@@ -22,6 +22,7 @@ okhttp = "4.9.3"
 retrofit = "2.9.0"
 coil = "2.1.0"
 timber = "5.0.1"
+leakcanary = "2.9.1"
 
 [libraries]
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -75,6 +76,8 @@ coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

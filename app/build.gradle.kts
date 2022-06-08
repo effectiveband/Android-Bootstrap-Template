@@ -32,4 +32,6 @@ dependencies {
 
     implementation(libs.okhttp.client)
     devImplementation(libs.okhttp.logginginterceptor)
+
+    debugImplementation(libs.leakcanary)
 }

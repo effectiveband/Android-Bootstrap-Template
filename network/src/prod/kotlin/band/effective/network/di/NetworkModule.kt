@@ -6,40 +6,29 @@ import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.addAdapter
 import dagger.Module
 import dagger.Provides
-import dagger.multibindings.IntoSet
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-@Module()
+@Module
 interface NetworkModule {
 
     companion object {
 
         @OptIn(ExperimentalStdlibApi::class)
         @Provides
-        @AppScope
         fun provideMoshi(): Moshi {
             return Moshi.Builder()
                 .addAdapter(Rfc3339DateJsonAdapter().nullSafe())
                 .build()
         }
 
-        @BaseNetwork
-        @Provides
-        @IntoSet
-        fun provideLoggingInterceptor(): Interceptor {
-            return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        }
-
-        @BaseNetwork
         @Provides
         @AppScope
         fun provideBaseOkHttpClient(
-            @BaseNetwork interceptors: Set<@JvmSuppressWildcards Interceptor>
+            interceptors: Set<@JvmSuppressWildcards Interceptor>
         ): OkHttpClient {
             return OkHttpClient.Builder()
                 .apply { interceptors.forEach(::addInterceptor) }
@@ -47,11 +36,10 @@ interface NetworkModule {
                 .build()
         }
 
-        @BaseNetwork
         @Provides
         @AppScope
         fun provideBaseRetrofit(
-            @BaseNetwork client: OkHttpClient,
+            client: OkHttpClient,
             moshi: Moshi
         ): Retrofit {
             return Retrofit.Builder()

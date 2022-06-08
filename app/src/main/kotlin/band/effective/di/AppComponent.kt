@@ -1,14 +1,14 @@
 package band.effective.di
 
 import android.app.Application
-import band.effective.TemplateApplication
 import band.effective.MainActivity
+import band.effective.TemplateApplication
 import band.effective.core.di.CommonDependencies
 import band.effective.core.di.scope.AppScope
 import band.effective.di.modules.AppModule
-import band.effective.network.di.NetworkModule
 import band.effective.di.modules.ComponentDependenciesModule
 import band.effective.main.di.MainComponentDependencies
+import band.effective.network.di.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 
